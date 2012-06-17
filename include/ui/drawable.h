@@ -21,6 +21,7 @@ class Drawable {
 
     public:
         Drawable() : disp(true) { };
+        virtual ~Drawable() {};
 
         /**
          * Draws the Drawable on the current rendering target.

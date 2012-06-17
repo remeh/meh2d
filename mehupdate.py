@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # mehupdate - update Makefiles 
-# remeh - remeh@remeh.fr
+# remeh - remeh AT remeh.fr
 # --
 
 version = "0.1"

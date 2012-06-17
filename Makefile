@@ -4,11 +4,12 @@ INCS = -I/usr/include -I./include/
 
 CFLAGS = -g -Wall -O2 $(INCS) -D_REENTRANT -DDEBUG -std=c++0x
 
+#LIBS = `pkg-config --libs allegro-debug-5.0 allegro_image-debug-5.0 allegro_audio-debug-5.0 allegro_acodec-debug-5.0 allegro_primitives-debug-5.0 allegro_ttf-debug-5.0`
 LIBS = `pkg-config --libs allegro-5.0 allegro_image-5.0 allegro_audio-5.0 allegro_acodec-5.0 allegro_primitives-5.0 allegro_ttf-5.0`
 all: libmeh.so
 
 clean:
-	rm -rf meh $(OBJ) libmeh.so
+	rm -rf meh $(OBJ) libmeh.so main
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -fPIC -c $< -o $@
@@ -17,5 +18,5 @@ libmeh.so: $(OBJ)
 	$(CC) -shared $(OBJ) -o $@ $(LIBS)
 
 main: libmeh.so main.cpp
-	$(CC) -o main $(OBJ) main.cpp $(LIBS) $(CFLAGS) $(INCS)
+	$(CC) -o main -g libmeh.so main.cpp $(LIBS) $(CFLAGS) $(INCS)
 

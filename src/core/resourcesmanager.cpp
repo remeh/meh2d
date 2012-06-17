@@ -1,5 +1,6 @@
 #include <map>
 #include <string>
+#include <cstdio>
 
 #include "core/resourcesmanager.h"
 #include "core/sample.h"

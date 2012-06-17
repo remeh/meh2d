@@ -37,19 +37,19 @@ void System::init() {
     }
 
     printf("init system audio...\n");
-//    if (!al_install_audio()) {
+    if (!al_install_audio()) {
         printf("ERR: Unable to init Allegro 5 audio system.\n");
-//    }
+    }
 
     printf("init system acodec...\n");
-//    if (!al_init_acodec_addon()) {
+    if (!al_init_acodec_addon()) {
         printf("ERR: Unable to init Allegro 5 audio codec addon.\n");
-    //}
+    }
 
     printf("init system samples...\n");
-    //if (!al_reserve_samples(16)) {
+    if (!al_reserve_samples(16)) {
         printf("ERR: Unable to reserve samples for sound system.\n");
-    //}   
+    }   
 
     printf("init primitives addon...\n");
     if (!al_init_primitives_addon()) {
