@@ -1,0 +1,19 @@
+CC = i486-mingw32-g++
+OBJ =  ./src/ui/view.o ./src/ui/drawablerectangle.o ./src/ui/spriteanimation.o ./src/ui/sprite.o ./src/ui/drawableroundedrectangle.o ./src/ui/drawabletriangle.o ./src/ui/drawabletext.o ./src/ui/canvas.o ./src/ui/particle.o ./src/ui/drawableellipse.o ./src/ui/particlesmanager.o ./src/ui/bitmap.o ./src/ui/drawableline.o ./src/core/sample.o ./src/core/system.o ./src/core/keyboardhandler.o ./src/core/timer.o ./src/core/font.o ./src/core/resourcesmanager.o ./src/core/fileconfig.o ./src/core/mousehandler.o
+INCS = -I/i486-mingw32/include -I./include/ 
+
+CFLAGS = -g -Wall -O2 $(INCS) -D_REENTRANT -DDEBUG -std=c++0x
+
+LIBS = -lallegro.dll -lallegro_image.dll -lallegro_audio.dll -lallegro_acodec.dll -lallegro_primitives.dll -lallegro_font.dll -lallegro_ttf.dll
+all: libmeh.dll
+
+clean:
+	rm -rf $(OBJ) libmeh.dll
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+libmeh.dll: $(OBJ)
+	$(CC) -shared $(OBJ) -o $@ $(LIBS)
+
+
